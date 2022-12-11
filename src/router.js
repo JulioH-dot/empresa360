@@ -3,11 +3,16 @@ import {createRouter, createWebHistory} from 'vue-router'
 
 import Home from '@/views/HomeComponent.vue'
 import Login from '@/views/LoginComponent.vue'
+import Site from '@/views/SiteComponent.vue'
 
 //----inicio das rotas
 
 
 const routes = [
+    {
+        path: '/',
+        component: Site
+    },
     {
         path:'/home',  //localhost:8080/home
         component: Home
