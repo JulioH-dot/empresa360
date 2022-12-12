@@ -43,7 +43,22 @@ export default {
   methods:{
     navegarPara(){
       //console.log('objeto de roteamento: ', this.$router)
-      this.$router.push('/home')
+      
+
+      //este método poderia ser o método de validação de login
+      // coletando os dados do e-mail e senha 
+      // realizar uma requisição http
+      // receber o token de autenticação
+      // por fim fazer o roteamento da rota home da aplicação 
+      //usando o método push
+
+
+      
+      this.$router.push('/home') // vai para a rota pretendida gravando no histórico de navegação
+      //this.$router.replace('/home') = vai para a rota mas alterando a url sem gravar no histórico de nagação do browser
+      //this.$router.forward() = avança nas rotas de navegação existentes no histórico do browser
+      // this.$router.back() = faz ao contrário do de cima ele retrocede porém usando o histórico de navegação do browser
+      // this.$router.go() =  avança ou retrocede dependendo do parâmetro passado a ele se for um número inteiro negativo ele retrocede se for positivo ele avança, também utilizando o histórico de navegação do browser utilizado
     }
   }
 }
