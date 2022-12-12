@@ -5,11 +5,13 @@ import Home from '@/views/HomeComponent.vue'
 import Login from '@/views/LoginComponent.vue'
 import Site from '@/views/SiteComponent.vue'
 
+import Dashboard from '@/components/dashboard/Dashboard.vue'
 import Servicos from '@/components/servicos/Servicos.vue'
 import Vendas from '@/components/vendas/Vendas.vue'
 
-import Leads from '@/components/vendas/Leads'
-import Contratos from '@/components/vendas/Contratos'
+import Leads from '@/components/vendas/Leads.vue'
+import LeadComponent from'@/components/vendas/LeadComponent.vue'
+import Contratos from '@/components/vendas/Contratos.vue'
 //----inicio das rotas
 
 
@@ -31,6 +33,10 @@ const routes = [
                         component: Leads
                     },
                     {
+                        path: 'leads/:id',              //localhost:8080/home/vendas/leads/idDinamico
+                        component: LeadComponent
+                    },
+                    {
                         path: 'contratos',          //localhost:8080/home/vendas/contratos
                         component: Contratos
                     }
@@ -39,6 +45,10 @@ const routes = [
             {
                 path: 'servicos',       //localhost:8080/home/servicos
                 component: Servicos
+            },
+            {
+                path: 'dashboard',       //localhost:8080/home/dashboard
+                component: Dashboard
             }
             
         ]
