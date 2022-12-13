@@ -17,39 +17,28 @@
           <td>{{d.telefone}}</td>
           <td>
             <router-link :to="`/home/vendas/leads/${d.id}`" class="btn btn-sm btn-primary">
-              <i class="bi bi-pencil-square" style="cursos: pointer"></i>
+              <i class="bi bi-pencil-square" style="cursor: pointer"></i>
             </router-link>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
-  </template>
+</template>
   
-  <script>
+<script>
+import apiMixins from '@/apiMixins.js'
   
   
-  export default {
-    name: 'Leads',
-    data:()=>({
-      dados: null
-    }),
-    methods: {
-      getDadosApi(){
-        fetch('http://localhost:3000/leads').then(response =>response.json()
-          .then(response =>{
-            this.dados = response
-          })
-        )
-          
-      }
-    },
-    created(){
-      this.getDadosApi()
-    }
+export default {
+  name: 'Leads',
+  mixins: [apiMixins],
+  created(){
+    this.getDadosApi('http://localhost:3000/leads')
   }
-  </script>
+}
+</script>
   
-  <style>
+<style>
   
-  </style>
+</style>

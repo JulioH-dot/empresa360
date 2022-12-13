@@ -9,9 +9,12 @@ import Dashboard from '@/components/dashboard/Dashboard.vue'
 import Servicos from '@/components/servicos/Servicos.vue'
 import Vendas from '@/components/vendas/Vendas.vue'
 
+import Contratos from '@/components/vendas/Contratos.vue'
 import Leads from '@/components/vendas/Leads.vue'
 import LeadComponent from'@/components/vendas/LeadComponent.vue'
-import Contratos from '@/components/vendas/Contratos.vue'
+import VendasPadrao from '@/components/vendas/VendasPadrao.vue'
+
+
 //----inicio das rotas
 
 
@@ -30,7 +33,8 @@ const routes = [
                 children:[
                     {
                         path: 'leads',              //localhost:8080/home/vendas/leads
-                        component: Leads
+                        component: Leads,
+                        name: 'leads'
                     },
                     {
                         path: 'leads/:id',              //localhost:8080/home/vendas/leads/idDinamico
@@ -38,17 +42,25 @@ const routes = [
                     },
                     {
                         path: 'contratos',          //localhost:8080/home/vendas/contratos
-                        component: Contratos
-                    }
+                        component: Contratos,
+                        name: 'contratos'
+                    },
+                    {
+                        path: '',          //localhost:8080/home/vendas/ = component padrão apresentado
+                        component: VendasPadrao,
+                        name:'vendasPadrao'
+                    },
                 ]
             },
             {
                 path: 'servicos',       //localhost:8080/home/servicos
-                component: Servicos
+                component: Servicos,
+                name: 'servicos'
             },
             {
                 path: 'dashboard',       //localhost:8080/home/dashboard
-                component: Dashboard
+                component: Dashboard,
+                name: 'dashboard',
             }
             
         ]

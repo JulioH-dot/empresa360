@@ -26,25 +26,13 @@
   </template>
   
   <script>
-  
+  import apiMixins from '@/apiMixins.js'
   
   export default {
     name: 'LeadComponent',
-    data:()=>({
-        dados: null
-    }),
-    methods:{
-        getDadosApi(){
-            fetch(`http://localhost:3000/leads/${this.$route.params.id}`).then(response =>response.json()
-                .then(response =>{
-                    this.dados = response
-                })
-            )
-        }
-
-    },
+    mixins: [apiMixins],
     created(){
-        this.getDadosApi()
+        this.getDadosApi(`http://localhost:3000/leads/${this.$route.params.id}`)
     }
   }
   </script>
