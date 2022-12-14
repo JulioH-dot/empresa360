@@ -14,6 +14,7 @@ import Leads from '@/components/vendas/Leads.vue'
 import LeadComponent from'@/components/vendas/LeadComponent.vue'
 import VendasPadrao from '@/components/vendas/VendasPadrao.vue'
 
+import ServicoComponent from '@/components/servicos/ServicoComponent.vue'
 
 //----inicio das rotas
 
@@ -38,7 +39,8 @@ const routes = [
                     },
                     {
                         path: 'leads/:id',              //localhost:8080/home/vendas/leads/idDinamico
-                        component: LeadComponent
+                        component: LeadComponent,
+                        name: 'lead',
                     },
                     {
                         path: 'contratos',          //localhost:8080/home/vendas/contratos
@@ -55,7 +57,15 @@ const routes = [
             {
                 path: 'servicos',       //localhost:8080/home/servicos
                 component: Servicos,
-                name: 'servicos'
+                name: 'servicos',
+                children:[
+                    {
+                        path:':id',
+                        component: ServicoComponent,
+                        name: 'servico'
+                    }
+
+                ]
             },
             {
                 path: 'dashboard',       //localhost:8080/home/dashboard
