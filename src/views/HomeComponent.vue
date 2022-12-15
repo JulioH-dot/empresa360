@@ -45,6 +45,9 @@
 
           </div>
       </div>
+      <div class="rodape">
+        <h3>Empresa<span>360</span></h3>
+      </div>
   </div>
 </template>
 
@@ -90,5 +93,17 @@ export default {
 }
 span{
     color:#0d6efd;
+}
+
+.rodape{
+    position: fixed;
+    left: 0;
+    margin: 0;
+    width: 100%;
+    bottom: 0;
+    background:#ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 </style>

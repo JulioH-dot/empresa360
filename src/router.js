@@ -16,8 +16,8 @@ import VendasPadrao from '@/components/vendas/VendasPadrao.vue'
 
 import ServicoComponent from '@/components/servicos/ServicoComponent.vue'
 
+import PaginaNotFound from '@/views/PaginaNotFound.vue'
 //----inicio das rotas
-
 
 const routes = [
     {
@@ -69,7 +69,7 @@ const routes = [
             },
             {
                 path: 'dashboard',       //localhost:8080/home/dashboard
-                component: Dashboard,
+                component:Dashboard,
                 name: 'dashboard',
             }
             
@@ -78,7 +78,16 @@ const routes = [
     {
         path: '/login',     //localhost:8080/login
         component: Login
+    },
+    /*{
+        path: '/:catchAll(.*)*', // caso uma rota for digitada errada esse Regex identifica a rota errada, depois dá um redirect para a rota raiz
+        redirect: '/'
+    }*/
+    {
+        path: '/:catchAll(.*)*',
+        component:PaginaNotFound
     }
+
 ]
 
 const router = createRouter({
