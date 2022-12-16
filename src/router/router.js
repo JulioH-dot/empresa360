@@ -15,6 +15,8 @@ import LeadComponent from'@/components/vendas/LeadComponent.vue'
 import VendasPadrao from '@/components/vendas/VendasPadrao.vue'
 
 import ServicoComponent from '@/components/servicos/ServicoComponent.vue'
+import Indicadores from '@/components/servicos/Indicadores.vue'
+import Opcoes from '@/components/servicos/Opcoes.vue'
 
 import PaginaNotFound from '@/views/PaginaNotFound.vue'
 //----inicio das rotas
@@ -38,7 +40,8 @@ const routes = [
                         name: 'leads'
                     },
                     {
-                        path: 'leads/:id',              //localhost:8080/home/vendas/leads/idDinamico
+                        path: 'leads/:id',
+                        props:true,              //localhost:8080/home/vendas/leads/idDinamico
                         component: LeadComponent,
                         name: 'lead',
                     },
@@ -61,8 +64,19 @@ const routes = [
                 children:[
                     {
                         path:':id',
-                        component: ServicoComponent,
-                        name: 'servico'
+                        name: 'servico',
+                        props:{
+                            default: true,
+                            indicadores: true,
+                            opcoes: true,
+                        },
+                        components: {
+                            default: ServicoComponent,
+                            indicadores: Indicadores,
+                            opcoes: Opcoes
+
+                        },
+                       
                     }
 
                 ]
@@ -95,6 +109,15 @@ const router = createRouter({
     routes: routes  //ou somente routes
 })
 
+router.beforeEach((to, from)=>{
+    console.log(`Origem: ${from}`)
+    console.log('----------------')
+    console.log(`Destino: ${to}`)
+    console.log('----------------')
+    //verificar se o usuário está permitido acessar tal rota
+    
+
+})
 
 export default router
 

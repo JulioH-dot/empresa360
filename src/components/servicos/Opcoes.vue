@@ -6,6 +6,10 @@
 
 export default{
     name:'Opcoes',
+    props:['id'],
+    created(){
+        console.log(`opçoes ${this.id}`)  //recuperaando via props o parâmetro
+    }
 }
 </script>
 

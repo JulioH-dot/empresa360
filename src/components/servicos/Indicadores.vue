@@ -6,6 +6,9 @@
 
 export default{
     name:'Indicadores',
+    created(){
+        console.log(`indicadores ${this.$route.params.id}`)  //sem o uso de props
+    }
 }
 </script>
 

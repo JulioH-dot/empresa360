@@ -12,7 +12,7 @@
             <div class="col-sm-10">
                 <input type="text" class="form-control" :value="dados.nome">
             </div>
-        </div>
+        </div> 
         <div class="m-3 row">
             <label  class="col-sm-2 col-form-label">Telefone</label>
             <div class="col-sm-10">
@@ -32,8 +32,10 @@
   export default {
     name: 'LeadComponent',
     mixins: [apiMixins],
+    props:['id'],
     created(){
-        this.getDadosApi(`http://localhost:3000/leads/${this.$route.params.id}`)
+
+        this.getDadosApi(`http://localhost:3000/leads/${this.id}`)
     }
   }
   </script>
