@@ -36,6 +36,15 @@
     created(){
 
         this.getDadosApi(`http://localhost:3000/leads/${this.id}`)
+    },
+    beforeRouteLeave(){
+        const confirmar = window.confirm('Deseja Sair?')
+
+        if(confirmar){
+            return confirmar
+        } else{
+            return confirmar
+        }
     }
   }
   </script>

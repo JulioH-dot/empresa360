@@ -5,20 +5,24 @@ import Home from '@/views/HomeComponent.vue'
 import Login from '@/views/LoginComponent.vue'
 import Site from '@/views/SiteComponent.vue'
 
-import Dashboard from '@/components/dashboard/Dashboard.vue'
-import Servicos from '@/components/servicos/Servicos.vue'
-import Vendas from '@/components/vendas/Vendas.vue'
+//lazy loading
+const Dashboard = ()=> import('@/components/dashboard/Dashboard.vue') 
 
-import Contratos from '@/components/vendas/Contratos.vue'
-import Leads from '@/components/vendas/Leads.vue'
-import LeadComponent from'@/components/vendas/LeadComponent.vue'
-import VendasPadrao from '@/components/vendas/VendasPadrao.vue'
+const Servicos = ()=> import(/*webpackChunkName: "servicos"*/'@/components/servicos/Servicos.vue')
+const Vendas = ()=> import(/*webpackChunkName: "vendas"*/'@/components/vendas/Vendas.vue')
 
-import ServicoComponent from '@/components/servicos/ServicoComponent.vue'
-import Indicadores from '@/components/servicos/Indicadores.vue'
-import Opcoes from '@/components/servicos/Opcoes.vue'
+//lazy loading
+const Contratos= () => import(/*webpackChunkName: "vendas"*/'@/components/vendas/Contratos.vue') 
 
-import PaginaNotFound from '@/views/PaginaNotFound.vue'
+const Leads = ()=> import (/*webpackChunkName: "vendas"*/'@/components/vendas/Leads.vue')
+const LeadComponent = ()=> import(/*webpackChunkName: "vendas"*/'@/components/vendas/LeadComponent.vue')
+const VendasPadrao = ()=> import(/*webpackChunkName: "vendas"*/'@/components/vendas/VendasPadrao.vue')
+
+const ServicoComponent = ()=> import(/*webpackChunkName: "servicos"*/'@/components/servicos/ServicoComponent.vue')
+const Indicadores = ()=> import(/*webpackChunkName: "servicos"*/'@/components/servicos/Indicadores.vue')
+const Opcoes = ()=> import(/*webpackChunkName: "servicos"*/'@/components/servicos/Opcoes.vue')
+
+const PaginaNotFound = () => import('@/views/PaginaNotFound.vue' ) 
 //----inicio das rotas
 
 const routes = [
@@ -76,7 +80,6 @@ const routes = [
                             opcoes: Opcoes
 
                         },
-                       
                     }
 
                 ]
@@ -106,6 +109,23 @@ const routes = [
 
 const router = createRouter({
     history:  createWebHistory(),
+    scrollBehavior(to, savedPosition){
+
+        if(savedPosition){
+            return savedPosition
+        }
+        
+        if(to.hash){
+            return {
+                el: to.hash
+            }
+        }
+
+        return {                // left = X; top=Y
+            left: 0,
+            top: 0
+        }
+    },
     routes: routes  //ou somente routes
 })
 
@@ -115,7 +135,7 @@ router.beforeEach((to, from)=>{
     console.log(`Destino: ${to}`)
     console.log('----------------')
     //verificar se o usuário está permitido acessar tal rota
-    
+
 
 })
 

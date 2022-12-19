@@ -2,14 +2,22 @@
     <div>
         <nav class="navbar navbar-light bg-light menu-superior">
             <div class="container">
-                <a class="navbar-brand" href="#">Empresa 360</a>
-                <div class="navbar-nav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <router-link class="nav-link" to="/login">Acessar</router-link>
-                        </li>
-                    </ul>
-                </div>
+                <a class="navbar-brand" href="#">Empresa <span class="empresa-color">360</span></a>
+            
+                <ul class="navbar-nav links">
+                    <li class="nav-item"> 
+                        <router-link class="nav-link" to="#section_1">Seção 1</router-link>
+                    </li>
+                    <li class="nav-item"> 
+                        <router-link class="nav-link" :to="{path:'/', hash: '#section_2'}">Seção 2</router-link>
+                    </li>
+                    <li class="nav-item"> 
+                        <router-link class="nav-link" :to="{path:'/', hash: '#section_3'}">Seção 3</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/login">Acessar</router-link>
+                    </li>
+                </ul>
             </div>
         </nav>
 
@@ -35,18 +43,50 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row mt-5 p-5 bg-light">
+                <div class="col">
+                    <h3 id="section_1">Seção 1</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas posuere luctus elit, et blandit neque pulvinar a. Nunc id consectetur ipsum. Sed dignissim turpis quis fringilla pretium. Sed bibendum faucibus ex, tincidunt aliquet mauris commodo accumsan. Vivamus commodo risus quis euismod tempus. Donec non hendrerit quam. Vivamus laoreet lacus sed neque tristique pulvinar. Vestibulum in maximus dolor. Mauris efficitur libero quis placerat placerat.</p>
+                    <p>Proin sollicitudin orci ligula, ac bibendum ante porttitor ac. Mauris a sem id augue blandit dapibus. Fusce facilisis mi et velit porttitor suscipit. Praesent ut nunc ullamcorper, pretium augue vitae, bibendum ligula. Duis ut augue lobortis, congue erat et, placerat nisl. Nam sed lobortis leo. Pellentesque gravida hendrerit urna, vitae ullamcorper ante pharetra eget. Integer consectetur laoreet ultricies. Nunc vestibulum pulvinar sodales.</p>
+                </div>
+            </div>
+
+            <div class="row mt-5 p-5">
+                <div class="col">
+                    <h3 id="section_2">Seção 2</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas posuere luctus elit, et blandit neque pulvinar a. Nunc id consectetur ipsum. Sed dignissim turpis quis fringilla pretium. Sed bibendum faucibus ex, tincidunt aliquet mauris commodo accumsan. Vivamus commodo risus quis euismod tempus. Donec non hendrerit quam. Vivamus laoreet lacus sed neque tristique pulvinar. Vestibulum in maximus dolor. Mauris efficitur libero quis placerat placerat.</p>
+                </div>
+            </div>
+
+            <div class="row mt-5 p-5 bg-light">
+                <div class="col">
+                    <h3 id="section_3">Seção 3</h3>
+                    <p>Proin sollicitudin orci ligula, ac bibendum ante porttitor ac. Mauris a sem id augue blandit dapibus. Fusce facilisis mi et velit porttitor suscipit. Praesent ut nunc ullamcorper, pretium augue vitae, bibendum ligula. Duis ut augue lobortis, congue erat et, placerat nisl. Nam sed lobortis leo. Pellentesque gravida hendrerit urna, vitae ullamcorper ante pharetra eget. Integer consectetur laoreet ultricies. Nunc vestibulum pulvinar sodales.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid mt-5">
+            <div class="row bg-secondary">
+                <div class="col">
+                    <p>Rodapé</p>
+                </div>
+            </div>
         </div>
     </div>
 </template>
+
 
 <script>
 
 
 export default {
- name: 'Site',
- components: {
-  
- }
+name: 'SiteComponent',
+components: {
+
+    
+}
 }
 </script>
 
@@ -57,5 +97,14 @@ export default {
 }
 .destaque {
     padding: 60px 15px;
+}
+.links {
+    flex-direction: row;
+}
+.links a{
+    margin-right: 20px;
+}
+.empresa-color{
+    color:#0d6efd
 }
 </style>
